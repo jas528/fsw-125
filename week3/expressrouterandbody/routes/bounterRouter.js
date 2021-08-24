@@ -11,4 +11,10 @@ const bounties = [{
     ID: uuid()
 }]
 
+bountyRouter.route('/')
+    .get((req, res) => {
+        res.send(bounties)
+    })
+
+
 module.exports = bountyRouter

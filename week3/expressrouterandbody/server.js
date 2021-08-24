@@ -3,6 +3,7 @@ const app = express()
 
 app.use('/', express.json())
 
+// bounty route
 app.use('/bounties', require('./routes/bounterRouter'))
 
 app.listen(9000, () => {
