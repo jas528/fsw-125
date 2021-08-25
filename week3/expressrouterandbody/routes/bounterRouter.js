@@ -4,17 +4,22 @@ const { v4: uuid } = require('uuid')
 
 const bounties = [{
     first_name: 'mike',
-    last_lame: 'james',
+    last_name: 'james',
     living: true,
     bounty_amount: 5,
     type: 'jedi',
-    ID: uuid()
+    _id: uuid()
 }]
 
 bountyRouter.route('/')
     .get((req, res) => {
         res.send(bounties)
     })
-
+    .post((req,res) => {
+        const newBounty = req.body
+        newBounty._id = uuid()
+        bounties.push(newBounty)
+        res.send('Successfully added your new Bounty to the database!')
+    })
 
 module.exports = bountyRouter
